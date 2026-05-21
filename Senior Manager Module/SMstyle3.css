@@ -1,0 +1,739 @@
+/* Global styles for the page */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Content container */
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0 auto;
+    font-family: "Open Sans", sans-serif;
+    background-color: #f1f5f9;
+}
+
+/* Top header */
+.top {
+    display: flex;
+    width: 100%;
+    height: 10vh;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 30px;
+    background-color: #285733;
+    /* SM Green */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Title */
+.top h1 {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 32pt;
+}
+
+/* Ribbon (drop-downs) */
+.sidebar {
+    display: flex;
+    flex: 0 0 100%;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #397d49;
+    /* SM Green */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 8vh;
+}
+
+/* Home icon */
+.home-icon {
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-right: 1px solid rgba(255, 255, 255, 0.15);
+    height: 100%;
+    flex: 0 0 60px;
+}
+
+/* Home icon hover */
+.home-icon:hover {
+    background: #5fa36f;
+    /* SM Green */
+    transform: scale(1.1);
+}
+
+/* Home icon SVG */
+.home-icon svg {
+    width: 60%;
+    height: 60%;
+    fill: white;
+}
+
+/* Tab container */
+.tab-con {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Tab */
+.tab {
+    padding: 18px 18px;
+    text-align: center;
+    width: 100%;
+    font-size: 14pt;
+    font-weight: 700;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #e8f0f7;
+    font-family: 'Montserrat', sans-serif;
+    transition: all 0.3s ease;
+    border-right: 1px solid rgba(255, 255, 255, 0.15);
+    position: relative;
+}
+
+/* Last tab */
+.tab:last-child {
+    border-right: none;
+}
+
+/* Tab hover */
+.tab:hover {
+    background-color: #5fa36f;
+    /* SM Green */
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Tab arrow */
+.tab::after {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border: solid currentColor;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    position: absolute;
+    right: 20px;
+    top: calc(50% - 6px);
+}
+
+/* Dropdown */
+.dropdown {
+    display: none;
+    background-color: #f8fafc;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    border: 1px solid #e2e8f0;
+}
+
+/* Dropdown update */
+.dropdown a {
+    display: block;
+    padding: 12px 12px;
+    color: #334155;
+    font-size: 12pt;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid #e2e8f0;
+}
+
+/* Dropdown hover */
+.dropdown a:hover {
+    background-color: #397d49;
+    /* SM Green */
+    color: white;
+    padding-left: 20px;
+}
+
+/* Dropdown show */
+.dropdown.show {
+    display: block;
+}
+
+.page-content {
+    display: flex;
+    flex-direction: row;
+    min-height: 82vh;
+    width: 100vw;
+}
+
+/* Main content */
+.main {
+    display: flex;
+    background-color: #f0f7f4;
+    flex: 0 0 30vw;
+    text-align: center;
+    /*justify-content: center;*/
+    flex-direction: column;
+    align-items: center;
+    padding-top: 3%;
+    padding-left: 2%;
+    padding-right: 2%;
+    min-height: 82vh;
+}
+
+.main.filters-hidden {
+    display: none;
+}
+
+/* Main content title */
+.main h2 {
+    font-family: "Montserrat", sans-serif;
+    color: #285733;
+    /* SM Green */
+    font-size: 22pt;
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+
+/* Paragraph */
+p {
+    font-family: "Open Sans", sans-serif;
+    color: #475569;
+    font-size: 14pt;
+}
+
+/* Plot */
+.plot {
+    display: flex;
+    flex-direction: column;
+    background-color: #f1f5f9;
+    flex: 1 !important;
+    text-align: center;
+    min-height: 82vh;
+    height: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    padding: 20px 20px;
+    border: 1px solid #e2e8f0;
+    transition: flex 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    max-width: 100%;
+}
+
+/*.plot.expanded {
+    width: 200vw;
+}*/
+
+/* Plot title */
+.plot h2 {
+    font-family: "Montserrat", sans-serif;
+    color: #285733;
+    /* SM Green */
+    font-size: 24pt;
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+
+/* Plot content */
+.plot_content {
+    display: none;
+}
+
+/* Plot content show */
+.plot_content.show {
+    display: block;
+    width: 100%;
+}
+
+/* Date container */
+.date-container {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-weight: bold;
+    font-size: 14pt;
+}
+
+/* Date input */
+input[type="date"],
+input[type="number"] {
+    text-align: center;
+    padding: 8px;
+    border: 2px solid #397d49;
+    /* SM Green */
+    border-radius: 10px;
+    font-family: "Open Sans", sans-serif;
+}
+
+/* Go button */
+.go-button {
+    display: block;
+    background-color: #397d49;
+    /* SM Green */
+    color: white;
+    width: 60px;
+    text-align: center;
+    padding: 6px 20px;
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 20px auto 0;
+}
+
+/* Go button hover */
+.go-button:hover {
+    background-color: #285733;
+    /* SM Green */
+}
+
+/* Clear button */
+.clear-button {
+    background: transparent;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    font-size: 0.9em;
+    text-decoration: underline;
+    margin-top: 15px;
+    align-self: flex-start;
+    padding-left: 0;
+    font-family: inherit;
+}
+
+/* Clear button hover */
+.clear-button:hover {
+    color: #333;
+}
+
+/* Toggle Button Styles */
+.toggle-btn {
+    position: absolute;
+    left: 30vw;
+    top: 25%;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-left: none;
+    padding: 8px 4px;
+    cursor: pointer;
+    z-index: 100;
+    border-radius: 0 4px 4px 0;
+    color: #333;
+    font-size: 14px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Toggle button hover */
+.toggle-btn:hover {
+    background-color: #e0e0e0;
+}
+
+/* Collapsed State */
+.content.filters-hidden .main {
+    display: none;
+}
+
+.content.filters-hidden .plot {
+    flex: 1;
+}
+
+/* Filter select all */
+.filterSelect_all {
+    text-align: right;
+    margin-top: 35px;
+}
+
+/* Table container */
+/*.table_con {
+    width: 100%;
+    max-height: 20%;
+    overflow-y: auto;
+    overflow-x: auto;
+    color: #1e3a5f;
+}*/
+/* Split view styles for the table and chart */
+.table_con,
+.chart_con {
+    position: relative;
+    /*Allows the table and chart to be positioned relative to the container*/
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    /*A subtle shadow for the table and chart*/
+    flex: 1;
+    /* Ensures the tavle and graph take up the same amount of space*/
+    min-width: 0;
+    /* Allow shrinking without there being overflow */
+    /*height: 700px;*/
+    display: flex;
+    flex-direction: column;
+}
+
+.table_con {
+    height: fit-content;
+    max-height: 70vh;
+}
+
+.chart_con {
+    max-height: 70vh;
+}
+
+/* Table */
+.table {
+    margin: 20px auto;
+    text-align: center;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Table header and data */
+.table th,
+.table td {
+    text-align: center !important;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    border: 1.5px solid #397d49;
+    /* SM Green */
+    min-width: 30%;
+    color: #285733;
+    /* SM Green */
+}
+
+/* Table header */
+.table thead {
+    border-bottom: 2px solid #285733;
+    /* SM Green */
+}
+
+/* Search bar */
+.search-bar {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+/* Search bar label */
+.search-bar label {
+    font-weight: bold;
+    font-size: 14pt;
+}
+
+/* Input wrapper */
+.input-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+/* Input */
+input[type="text"] {
+    width: 231px;
+    padding: 8px;
+    border-radius: 10px;
+    border: 2px solid #397d49;
+    /* SM Green */
+    font-family: "Open Sans", sans-serif;
+}
+
+/* Suggest */
+#suggest {
+    border: 1px solid #e2e8f0;
+    color: #334155;
+    width: 100%;
+    max-height: 130px;
+    overflow-y: auto;
+    margin-top: 4px;
+    padding: 0;
+    list-style: none;
+    background: #f8fafc;
+    text-align: left;
+    z-index: 1000;
+    position: absolute;
+}
+
+/* Suggest empty */
+#suggest:empty {
+    display: none;
+}
+
+/* Suggest list */
+#suggest li {
+    padding: 8px;
+    cursor: pointer;
+    text-align: left;
+}
+
+/* Suggest list hover */
+#suggest li:hover {
+    background-color: #397d49;
+    /* SM Green */
+    color: white;
+}
+
+/* Pop container */
+.pop_con {
+    display: none;
+}
+
+/* Pop container show */
+.pop_con.show {
+    display: block;
+}
+
+/* Select */
+select {
+    border: 2px solid #397d49;
+    /* SM Green */
+    background: #f8fafc;
+    padding: 8px;
+    border-radius: 10px;
+    color: black;
+}
+
+/* Submit button */
+button[type="submit"] {
+    background-color: #5fa36f;
+    /* SM Green */
+    border-radius: 10px;
+    padding: 8px;
+    border: 1px solid #397d49;
+    /* SM Green */
+    color: white;
+    font-weight: bold;
+}
+
+/* Sup comp */
+.sup_comp {
+    display: none;
+}
+
+/* Update container */
+.update_con {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Label, span */
+label,
+span {
+    font-weight: 500;
+    color: #285733;
+    /* SM Green */
+    font-size: 13pt;
+    font-family: "Open Sans", sans-serif;
+}
+
+h3 {
+    color: #285733;
+    /* SM Green */
+    font-size: 16pt;
+    font-family: "Montserrat", sans-serif;
+}
+
+/* Input checkbox */
+input[type="checkbox"] {
+    height: 20px;
+    width: 20px;
+    accent-color: #285733;
+    /* SM Green */
+}
+
+/* Filter style */
+.filter-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Filter options label */
+.filter-options label {
+    font-size: 0.9em;
+    font-family: "Open Sans", sans-serif;
+    color: #285733;
+    margin-right: 15px;
+    font-weight: normal;
+    margin-left: 10px;
+}
+
+/* To Keep Filters and Labels together*/
+.filter-item {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+/* Filter options input checkbox */
+/*.filter-options input[type="checkbox"] {
+    margin-right: 5px;
+}*/
+
+/* Logout container */
+.logout_con {
+    display: flex;
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    padding: 1.25%;
+    border-radius: 2px;
+    position: absolute;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    width: 10%;
+}
+
+.logout_con a {
+    color: white;
+    font-family: "Open Sans", sans-serif;
+    font-size: 12pt;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/* Logout container hover */
+.logout_con:hover {
+    background-color: #397d49;
+    border: 1px solid #5fa36f;
+}
+
+/* Logout container img */
+.logout_con img {
+    fill: white;
+    max-height: 3vh;
+    margin-right: 10%;
+}
+
+/* Search wrapper */
+.search-wrapper {
+    position: relative;
+    display: inline-block;
+    z-index: 1000;
+}
+
+.search-page-con {
+    background-color: #f8fafc;
+    padding: 10px;
+    width: 24vw;
+    height: 8vh;
+    display: none;
+    /*justify-content: center;*/
+    align-items: center;
+    border-radius: 8px;
+    top: 100%;
+    position: absolute;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    border: 2px solid #e2e8f0;
+}
+
+/* Search input */
+.search-input {
+    position: absolute;
+    width: 18vw;
+    border-radius: 8px;
+    display: none;
+    height: 5vh;
+}
+
+.search-page-con.open {
+    display: flex;
+}
+
+.search-input.open {
+    display: block;
+}
+
+/* Search arrow content */
+.search-arrow-con {
+    display: none;
+    background-color: #397d49;
+    width: auto;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-left: 19vw;
+    height: 5vh;
+    border: 2px solid #285733;
+}
+
+.search-arrow-con:hover {
+    background-color: #5fa36f;
+}
+
+.search-arrow-con.open {
+    display: block;
+}
+
+/* Suggest */
+#pagesuggest {
+    border: 1px solid #e2e8f0;
+    color: #334155;
+    width: 18vw;
+    max-height: 130px;
+    overflow-y: auto;
+    padding: 0;
+    list-style: none;
+    background: #f8fafc;
+    text-align: left;
+    z-index: 1000;
+    position: absolute;
+    top: 100%;
+    border-top: none;
+    border-radius: 2px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+#pagesuggest:empty {
+    display: none;
+}
+
+#pagesuggest li {
+    padding: 8px;
+    cursor: pointer;
+    text-align: left;
+}
+
+#pagesuggest li:hover {
+    background-color: #397d49;
+    color: white;
+}
+
+/* Search icon */
+.search-icon {
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-right: 1px solid rgba(255, 255, 255, 0.15);
+    height: 8vh;
+    width: 8vh;
+    flex: 0 0 60px;
+}
+
+/* Search icon hover */
+.search-icon:hover {
+    background: #5fa36f;
+    transform: scale(1.1);
+}
+
+.table_split{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    max-width: 100%;
+    box-sizing: border-box;
+}
